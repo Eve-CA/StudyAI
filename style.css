@@ -460,6 +460,6 @@ body {
     line-height: 1.4; /* Un poco más de espacio vertical mejora mucho la lectura */
     
     /* Colores y alineación */
-    color: #e03e2d; /* Color rojizo/alerta para errores (puedes cambiarlo por tu variable) */
+    color: #000000; /* Color rojizo/alerta para errores (puedes cambiarlo por tu variable) */
     text-align: left; /* ¡NUNCA justifiques un JSON o código! Siempre a la izquierda */
 }
