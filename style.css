@@ -91,10 +91,14 @@ body {
   letter-spacing: 0.08em;
 }
 
+/* MODIFICADO: Letra más pequeña y en cursiva */
 .header-note {
-  color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--muted);
   max-width: 32ch;
+  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -338,6 +342,11 @@ body {
   background-position: 0 1rem;
 }
 
+/* Ocultar el mensaje "Aquí verás el resultado" si ya se generó contenido */
+.results-sheet:has(.results-content:not(:empty)) .results-empty {
+  display: none !important;
+}
+
 .results-empty {
   min-height: 0;
   display: flex;
@@ -354,43 +363,43 @@ body {
 
 .results-empty-sub { font-size: 0.85rem; }
 
-.results-content{
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    font-size:1rem;
-    color:var(--ink-soft);
-    white-space:pre-wrap;
-    line-height:1.7;
-    margin:0;
-    padding:0;
+.results-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
 }
 
-.results-content h3{
-    margin:0 0 8px 0;
-    padding:0;
-}
-
-.ai-result{
-    margin:0;
-    padding:0;
-    white-space:pre-wrap;
-    font-family:inherit;
-    font-size:1rem;
-    line-height:1.8;
-    color:var(--ink-soft);
-}
-
-.results-content h3{
-    margin:0;
-    padding:0;
-    line-height:1.2;
-}
+/* MODIFICADO: Misma letra que el resultado, más pequeña y profesional (sin cajas ni bordes raros) */
+.results-content h3 {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--ink);
-  margin-bottom: 0;
-  line-height: 2.05rem;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 1.3;
+}
+
+/* RESTAURADO: Tu diseño original intacto para la caja de texto del resultado */
+.ai-result {
+  margin: 15px 0 0 0;
+  padding: 12px;
+  background-color: #f5f5f7;
+  border: 1px solid #e1e1e4;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #000000;
+  text-align: left;
 }
 
 .results-loading {
@@ -444,22 +453,4 @@ body {
   .panel-input { padding: 1.25rem; }
   .action-grid { grid-template-columns: 1fr; }
   .results-sheet { padding: 1.5rem 1.25rem; }
-}
-.ai-result {
-    margin: 15px 0 0 0;
-    padding: 12px;
-    background-color: #f5f5f7; /* Un fondo gris suave para identificar el bloque */
-    border: 1px solid #e1e1e4; /* Borde sutil */
-    border-radius: 6px; /* Esquinas redondeadas */
-    
-    /* Manejo de texto y código */
-    white-space: pre-wrap;
-    word-break: break-all; /* Evita que el JSON rompa el contenedor */
-    font-family: 'Courier New', Courier, monospace; /* Tipografía de código clásica */
-    font-size: 0.85rem;
-    line-height: 1.4; /* Un poco más de espacio vertical mejora mucho la lectura */
-    
-    /* Colores y alineación */
-    color: #000000; /* Color rojizo/alerta para errores (puedes cambiarlo por tu variable) */
-    text-align: left; /* ¡NUNCA justifiques un JSON o código! Siempre a la izquierda */
 }

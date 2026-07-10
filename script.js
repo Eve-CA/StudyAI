@@ -113,7 +113,7 @@ dropZone.addEventListener("drop",(event)=>{
 
 
 
-function handleFile(file){
+async function handleFile(file){
 
     if (file.size > 500 * 1024 * 1024) {
         alert("El archivo supera el tamaño máximo permitido de 500 MB.");
@@ -124,7 +124,11 @@ function handleFile(file){
     extractedText = null;
 
     renderFileList();
-    toggleActionButtons(true);
+    resetResultsPanel();
+
+    toggleActionButtons(false);
+
+    await extractTextFromFile(file);
 
 }
 
