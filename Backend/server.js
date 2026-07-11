@@ -15,7 +15,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://studyai-online.vercel.app",
+    "https://study-ai-alpha-ashen.vercel.app"
+  ],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json({ limit: "700mb" }));
 
 const PORT = 3000;
