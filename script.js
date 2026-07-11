@@ -26,7 +26,7 @@ const resultsContent = document.getElementById("resultsContent");
    2. Estado de la aplicación
    ------------------------------------------------------------------------- */
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://studyai-api.onrender.com";
 
 let uploadedFile = null;
 let extractedText = null;
